@@ -1,0 +1,56 @@
+                                            Docker Tutorial
+
+=> Docker Engine
+ -> When you install docker in your system it install the docker engine. Which hosts linux to
+ run the docker.
+
+=> Getting Started
+ -> Define a DockerFile in your project directory
+    
+        FROM node:14
+
+        WORKDIR /app
+
+        COPY package.json .
+
+        RUN npm install
+
+        COPY . .
+
+        EXPOSE 3000
+
+        CMD [ "node", "app.mjs" ]
+
+ -> After that run the following command
+    "docker build ."
+    - The above command will create a new docker image based upon the DockerFile configuration.
+    - After creating the docker image you will get the image id.
+ 
+ -> Now you need to expost the docker's port 3000 to your computer's port 3000
+    - docker run -p 3000:3000 d196f5a194d61bca9bdc82086f72c90f05d8adae35074baec3d5425d9db35afb
+    - After the above command you will docker container will be started.
+
+ -> "docker ps"
+    - This command will list all the running docker containers.
+ 
+ -> Stop the docker
+    - "docker stop docker_name"
+
+=> Images And container
+ -> Image is a template. It contains the code and the execution dependencies.
+ -> Images are blueprint for containers.
+ -> Container is the running unit of software.
+ -> Multiple containers can be created using a single image.
+
+=> Inbuit images.
+ -> Docker hub has lot of pre build images.
+ -> Ex: "docker run node"
+
+=> "docker ps -a"
+ -> This command list out all the process created by docker.
+
+=> To expose the terminal of image to host machine
+ -> "docker run -it node"
+
+=> run command creates a instance of image.
+  
